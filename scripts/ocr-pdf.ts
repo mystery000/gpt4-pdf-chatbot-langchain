@@ -1,3 +1,4 @@
+import os
 import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { OpenAI } from 'langchain/llms/openai';
 import {
@@ -14,7 +15,7 @@ we collect in 2016?\\nAnswer:The rent for the period of June 1, 2016 to May 31, 
 const chat = new OpenAI({
     modelName: 'gpt-3.5-turbo',
     temperature: 0.1,
-    openAIApiKey: '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',
+    openAIApiKey: os.getenv("OPENAI_API_KEY")
 });
 // Pass in a list of messages to `call` to start a conversation. In this simple example, we only pass in one message.
 const responseA = await chat.call(text);
